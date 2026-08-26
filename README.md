@@ -1,33 +1,34 @@
+<div align="center">
+  
 # 🎓 StudyAI Pro
 
-**Live Demo:** [https://krrish-cypto.github.io/study-ai-pro/](https://krrish-cypto.github.io/study-ai-pro/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Available-success?style=for-the-badge&logo=vercel)](https://krrish-cypto.github.io/study-ai-pro/)
+<br>
 
-Built by **Krishna Dubey** as a Beginner Level task for the AI Engineer Internship at ShadowFox.
+**Tech Stack:**
+<br>
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Google Gemini](https://img.shields.io/badge/Google_Gemini-8E75B2?style=for-the-badge&logo=google&logoColor=white)
 
-StudyAI Pro is an intelligent, completely client-side AI student assistant built to help students process, understand, and plan their studies. It utilizes the Google Gemini API to offer a suite of five powerful educational tools.
+<br>
+<i>An intelligent, completely client-side AI student assistant built to help students process, understand, and plan their studies.</i>
 
----
-
-## 🛠️ Tech Stack
-
-- 🌐 **HTML5**: Semantic structure and layout of the web application.
-- 🎨 **Vanilla CSS3**: Styling, responsive design, glassmorphism UI, and interactive animations (no external CSS frameworks used).
-- ⚡ **JavaScript (ES6+)**: Core application logic, DOM manipulation, state management, and asynchronous API integration.
-- 🧠 **Google Gemini API** (`gemini-3.6-flash`): The underlying Large Language Model providing the AI capabilities.
-- 📝 **Marked.js**: Used for rendering the Markdown responses from the AI into beautifully formatted HTML.
+</div>
 
 ---
 
 ## ✨ Features
 
-1. **Note Summarizer**: Condenses long study notes into key bullet points.
-2. **Concept Explainer**: Explains complex topics clearly with real-world examples.
-3. **Quiz Generator**: Automatically generates short, multiple-choice quizzes from provided text.
-4. **Answer Improver**: Reviews draft answers and provides constructive feedback and a polished version.
-5. **Schedule Maker**: Creates structured study timetables based on topics and available time.
-6. **Local History**: Automatically saves your past AI generations to the browser's `localStorage` so you never lose your work.
-7. **Export Tools**: One-click "Copy to Clipboard" and "Export as TXT" functionality.
-8. **Bring-Your-Own-Key (BYOK)**: Securely authenticates users using their personal Gemini API key.
+- 📝 **Note Summarizer**: Condenses long study notes into key bullet points.
+- 💡 **Concept Explainer**: Explains complex topics clearly with real-world examples.
+- 🎯 **Quiz Generator**: Automatically generates short, multiple-choice quizzes from provided text.
+- ✍️ **Answer Improver**: Reviews draft answers and provides constructive feedback and a polished version.
+- 📅 **Schedule Maker**: Creates structured study timetables based on topics and available time.
+- 💾 **Local History**: Automatically saves your past AI generations to the browser's `localStorage` so you never lose your work.
+- 📤 **Export Tools**: One-click "Copy to Clipboard" and "Export as TXT" functionality.
+- 🔐 **Bring-Your-Own-Key (BYOK)**: Securely authenticates users using their personal Gemini API key.
 
 ---
 
@@ -46,10 +47,6 @@ Since this project is completely client-side, running it locally is incredibly s
    ```bash
    python -m http.server 8000
    ```
-   *Or using Node.js/npm:*
-   ```bash
-   npx serve .
-   ```
 
 3. **Open your browser:**
    Navigate to `http://localhost:8000`
@@ -59,7 +56,7 @@ Since this project is completely client-side, running it locally is incredibly s
 
 ---
 
-## 🔄 Workflow & Architecture Flow Diagram
+## 🔄 Architecture & Flow Diagram
 
 Below is the workflow diagram illustrating how data moves through the application from the user input to the final AI generation.
 
@@ -81,16 +78,12 @@ graph TD
     J --> K{User Actions}
     
     K --> L[Copy to Clipboard]
-    K --> M[Export to TXT]
+    K --> M[Export as TXT]
 ```
 
-### Application Flow Details:
-1. **Initialization**: The app checks `localStorage` for a saved Gemini API key and past generation history.
-2. **Feature Selection**: The user selects one of the five AI tools from the sidebar. The UI updates dynamically to reflect the required input.
-3. **Generation Trigger**: The user inputs their study text and clicks "Generate".
-4. **API Call**: `app.js` wraps the user's input with a hardcoded prompt specific to the selected tool (e.g., instructing the AI to act as a quiz generator) and sends a `POST` request to the Google Gemini API.
-5. **Response Processing**: 
-   - The response is saved to the browser's local storage.
-   - The markdown response is parsed into HTML.
-   - The UI reveals the output using a simulated "typing" effect.
-6. **Post-Processing**: The user can view their generated content, download it as a `.txt` file, copy it, or retrieve it later from the History panel.
+---
+<div align="center">
+  <b>Built with ❤️ by Krishna Dubey</b>
+  <br>
+  <i>Beginner Level task for the AI Engineer Internship at ShadowFox</i>
+</div>
