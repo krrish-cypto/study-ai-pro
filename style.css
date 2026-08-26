@@ -646,14 +646,11 @@ textarea:focus {
     to { transform: rotate(360deg); }
 }
 
-/* Watermark */
 .watermark-badge {
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border-color);
-    text-align: center;
+    margin-top: 4px;
+    padding-left: 48px; /* Aligns perfectly with the text next to the 36px icon + 12px gap */
     color: var(--text-secondary);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 
 .watermark-badge span {
