@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Student Assistant Pro</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Marked.js for markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- API Key Modal -->
+    <div id="apiKeyModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2><i class='bx bxs-key' ></i> Setup API Key</h2>
+            </div>
+            <div class="modal-body">
+                <p>Welcome! To use the AI Student Assistant, please enter your Google Gemini API Key.</p>
+                <div class="input-group">
+                    <label for="apiKeyInput">Gemini API Key</label>
+                    <input type="password" id="apiKeyInput" placeholder="AIzaSy...">
+                </div>
+                <p class="small-text">Your key is stored securely in your browser's local storage and is never sent anywhere except directly to Google's API.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="saveApiKeyBtn" class="btn primary-btn">Save Key</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div id="historyModal" class="modal-overlay">
+        <div class="modal history-modal">
+            <div class="modal-header">
+                <h2><i class='bx bx-history'></i> Generation History</h2>
+                <button id="closeHistoryBtn" class="icon-btn"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="modal-body" id="historyList">
+                <!-- History items will be injected here -->
+            </div>
+            <div class="modal-footer">
+                <button id="clearHistoryBtn" class="btn danger-btn">Clear All</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon"><i class='bx bxs-graduation' ></i></div>
+                    <span>StudyAI Pro</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-feature="summarizer">
+                    <i class='bx bx-notepad' ></i>
+                    <span>Note Summarizer</span>
+                </button>
+                <button class="nav-item" data-feature="explainer">
+                    <i class='bx bx-brain' ></i>
+                    <span>Concept Explainer</span>
+                </button>
+                <button class="nav-item" data-feature="quiz">
+                    <i class='bx bx-task' ></i>
+                    <span>Quiz Generator</span>
+                </button>
+                <button class="nav-item" data-feature="improver">
+                    <i class='bx bx-edit-alt' ></i>
+                    <span>Answer Improver</span>
+                </button>
+                <button class="nav-item" data-feature="scheduler">
+                    <i class='bx bx-calendar-star' ></i>
+                    <span>Schedule Maker</span>
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="viewHistoryBtn" class="nav-item">
+                    <i class='bx bx-history' ></i>
+                    <span>History</span>
+                </button>
+                <button id="changeKeyBtn" class="nav-item">
+                    <i class='bx bxs-cog' ></i>
+                    <span>Settings</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <h1 id="featureTitle">Note Summarizer</h1>
+                <p id="featureDescription">Condense your long study notes into key bullet points.</p>
+            </header>
+
+            <div class="workspace">
+                <div class="input-section glass-panel">
+                    <label for="userInput" class="section-label">Your Content</label>
+                    <textarea id="userInput" placeholder="Paste your notes or concepts here..."></textarea>
+                    
+                    <div class="action-bar">
+                        <div id="errorMessage" class="error-msg"></div>
+                        <button id="generateBtn" class="btn primary-btn btn-lg">
+                            <i class='bx bx-sparkles' ></i> Generate
+                        </button>
+                    </div>
+                </div>
+
+                <div class="output-section glass-panel">
+                    <div class="output-header">
+                        <label class="section-label">AI Output</label>
+                        <div class="output-actions">
+                            <button id="copyBtn" class="icon-btn" title="Copy to Clipboard" disabled><i class='bx bx-copy'></i></button>
+                            <button id="exportBtn" class="icon-btn" title="Export as TXT" disabled><i class='bx bx-download'></i></button>
+                        </div>
+                    </div>
+                    
+                    <div id="loadingIndicator" class="loading-container hidden">
+                        <div class="spinner"></div>
+                        <p>Thinking...</p>
+                    </div>
+                    
+                    <div id="outputContainer" class="output-container empty">
+                        <div class="empty-state">
+                            <i class='bx bx-ghost'></i>
+                            <p>Output will appear here once generated.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
